@@ -1,0 +1,96 @@
+<nav class="navbar navbar-expand-sm mycolor">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="/">Zaia63</a>
+        <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarContent"
+            aria-controls="navbarContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+        >
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarContent">
+            <ul class="navbar-nav me-auto">
+                <li class="nav-item">
+                    <a
+                        class="nav-link active"
+                        aria-current="page"
+                        href="/pictures"
+                    >
+                        <% if (page == 'pictures') { %>
+                        <strong>Картинки</strong>
+                        <% } else { %> Картинки <% } %>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a
+                        class="nav-link active"
+                        aria-current="page"
+                        href="/about"
+                    >
+                        <% if (page == 'about') { %>
+                        <strong>Обо мне</strong>
+                        <% } else { %> Обо мне <% } %>
+                    </a>
+                </li>
+
+                <% if (currentUser && currentUser.isAdmin) { %>
+                <li class="nav-item">
+                    <a
+                        class="nav-link active"
+                        aria-current="page"
+                        href="/pictures/create"
+                    >
+                        <% if (page == 'createPicture') { %>
+                        <strong>Создать</strong>
+                        <% } else { %> Создать <% } %>
+                    </a>
+                </li>
+                <% } %>
+            </ul>
+
+            <ul class="navbar-nav">
+                <% if (!currentUser) { %>
+                <li class="nav-item">
+                    <a class="nav-link active" href="/login">
+                        <% if (page == 'login') { %>
+                        <strong>Войти</strong>
+                        <% } else { %> Войти <% } %>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="/register">
+                        <% if (page == 'register') { %>
+                        <strong>Зарегистрироваться</strong>
+                        <% } else { %> Зарегистрироваться <% } %></a
+                    >
+                </li>
+                <% } else { %>
+                <li class="nav-item dropdown">
+                    <a
+                        class="text-decoration-none text-dark"
+                        href="#"
+                        data-bs-toggle="dropdown"
+                        id="nav-username"
+                    >
+                        <%= currentUser.username %>
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-end">
+                        <li>
+                            <a class="dropdown-item" href="/settings"
+                                >Настройки</a
+                            >
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="/logout">Выйти</a>
+                        </li>
+                    </ul>
+                </li>
+                <% } %>
+            </ul>
+        </div>
+    </div>
+</nav>

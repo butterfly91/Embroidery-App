@@ -1,0 +1,68 @@
+<%- layout('layouts/main.ejs') %>
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div
+            class="card shadow col-xxl-4 col-xl-5 col-bg-6 col-md-8 col-10 p-4 my-3"
+        >
+            <form
+                action="/pictures/<%= picture.id %>/edit?_method=PATCH"
+                method="POST"
+                enctype="multipart/form-data"
+            >
+                <label for="pictureName" class="form-label">Имя</label>
+                <input
+                    type="text"
+                    name="picture[name]"
+                    id="pictureName"
+                    class="form-control"
+                    value="<%= picture.name %>"
+                />
+                <label for="pictureName" class="form-label mt-3"
+                    >Описание</label
+                >
+                <textarea
+                    name="picture[description]"
+                    id="pictureDescription"
+                    cols="30"
+                    rows="5"
+                    class="form-control"
+                >
+<%= picture.description %></textarea
+                >
+                <label for="thumbnailUpload" class="form-label mt-3"
+                    >Новые картинки для предпросмотра</label
+                >
+                <input
+                    type="file"
+                    id="thumbnailUpload"
+                    name="thumbnails"
+                    multiple
+                    class="form-control"
+                />
+                <label for="paidUpload" class="form-label mt-3"
+                    >Новые платные файлы</label
+                >
+                <input
+                    type="file"
+                    id="paidUpload"
+                    name="paidFiles"
+                    class="form-control"
+                />
+                <label for="picturePrice" class="form-label mt-3"
+                    >Цена (в рублях)</label
+                >
+                <input
+                    type="text"
+                    name="picture[price]"
+                    id="picturePrice"
+                    class="form-control"
+                    value="<%= picture.price %>"
+                />
+                <button class="btn btn-success mt-3">
+                    Сохранить изменения
+                </button>
+            </form>
+        </div>
+    </div>
+</div>

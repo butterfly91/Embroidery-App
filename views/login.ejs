@@ -1,0 +1,18 @@
+<%- layout('layouts/main.ejs') %>
+
+<row class="row justify-content-center">
+    <div class="card col-lg-4 col-md-6 col-8 p-4 shadow my-3 pt-2 centered">
+        <form action="/login" method="POST">
+            <label for="username" class="form-label mt-3">Логин</label>
+            <input
+                type="text"
+                id="username"
+                name="username"
+                class="form-control"
+            />
+            <label for="name" class="form-label mt-3">Пароль</label>
+            <input type="password" name="password" class="form-control" />
+            <button class="btn btn-success mt-3">Войти</button>
+        </form>
+    </div>
+</row>

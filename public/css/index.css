@@ -1,0 +1,36 @@
+#nav-username:hover {
+    font-weight: bold;
+}
+
+.card-img-top {
+    object-fit: cover;
+}
+
+body {
+    font-family: "Roboto", sans-serif;
+    /* font-family: "Open Sans", sans-serif; */
+}
+
+.ruble-sign {
+    padding-left: 2px;
+}
+/* 
+.mycolors {
+    background-color: #ddd;
+}
+
+body {
+    background-color: #eee;
+}
+
+.nav-tabs {
+    border-color: #ccc !important;
+}
+.my-nav.active {
+    border-color: #ccc !important;
+    background-color: #ddd !important;
+} */
+
+.mycolor {
+    background-color: rgb(241, 241, 241);
+}

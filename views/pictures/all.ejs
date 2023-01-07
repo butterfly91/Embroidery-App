@@ -1,0 +1,64 @@
+<% layout('layouts/main.ejs') %>
+
+<div class="row align-items-center my-3">
+    <div class="col-6">
+        <ul class="nav nav-tabs">
+            <li class="nav-item">
+                <a class="nav-link active my-nav" id="embroidery-tab" href="#">Вышивка</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link my-nav" href="#" id="pictures-tab">Рисунки</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link my-nav" href="#" id="pictures-tab">Бесплатные</a>
+            </li>
+        </ul>
+    </div>
+    <div class="col-6">
+        <form class="d-flex" role="search" method="GET" action="/pictures">
+            <input class="form-control me-2" type="search" name="search" placeholder="<%= search ? search : 'Поиск'%>" aria-label="Поиск" />
+            <button class="btn btn-outline-success" type="submit">Найти</button>
+        </form>
+    </div>
+</div>
+
+<div id="embroidery-content" class="row row-cols-lg-3 row-cols-md-3 row-cols-2 justify-content-start g-1">
+    <% for (let picture of allPictures) { %>
+    <div class="col">
+        <div class="card px-0 border-0 rounded-0 h-100 mycolor">
+            <div class="ratio ratio-4x3">
+                <img src="<%= picture.thumbnails[0] %>" class="card-img-top rounded-0" />
+            </div>
+            <div class="card-body">
+                <h5 class="card-title"><%= picture.name %></h6>
+                    <strong><%=picture.price %><span class="ruble-sign">&#8381</span></strong>
+                    <a href="/pictures/<%=picture.id%>" class="stretched-link"></a>
+            </div>
+        </div>
+    </div>
+    <% } %>
+</div>
+
+<div id="pictures-content"></div>
+<!-- 
+<div
+    id="pictures-content"
+    class="d-none row row-cols-lg-4 row-cols-md-3 row-cols-sm-2 justify-content-evenly g-3">
+    <% for (let i = 0; i < 30; i++) { %>
+    <div class="card">
+        <img
+            src="https://img1.akspic.ru/attachments/crops/2/2/4/0/50422/50422-senokosnoye_ugodye-pole-selskoe_hozyajstvo-zakat-risovoe_pole-2560x1440.jpg"
+            class="card-img-top"
+            alt="..."
+        />
+        <div class="card-body">
+            <p class="card-text">
+                Some quick example text to build on the card title and make up
+                the bulk of the card's content.
+            </p>
+        </div>
+    </div>
+    <% } %>
+</div> -->
+
+<script src="/public/js/index.js"></script>
